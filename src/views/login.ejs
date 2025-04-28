@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+    <h1>Login</h1>
+    
+    <% if (error.length > 0) { %>
+        <div style="color: red;"><%= error[0] %></div>
+    <% } %>
+    <% if (done.length > 0) { %>
+        <div style="color: green;"><%= done[0] %></div>
+    <% } %>
+    <% if (signal.length > 0) { %>
+        <div style="color: orange;"><%= signal[0] %></div>
+    <% } %>
+
+    <form method="POST" action="/login">
+        <input type="hidden" name="next" value="<%= next %>">
+        <input type="hidden" name="guid" value="<%= guid %>">
+        
+        <label>Email:</label><br>
+        <input type="email" name="email" required><br><br>
+        
+        <label>Password:</label><br>
+        <input type="password" name="password" required><br><br>
+        
+        <button type="submit">Login</button>
+    </form>
+
+    <p>Don't have an account? <a href="/signup">Sign up</a></p>
+</body>
+</html>
